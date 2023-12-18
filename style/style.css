@@ -555,9 +555,9 @@ p11, p13, p15{
 
 /* для планшета */
 @media screen and (max-width: 768px) {
-    .info{
+    /* .info{
         background-color: #0fe600; 
-    }
+    } */
     form input{
         height: 25px;
     }
@@ -677,9 +677,9 @@ p11, p13, p15{
         margin-left: 25%;
         margin-right: 25%;
     }
-    .info{
+    /* .info{
         background-color: #ff0000;
-    }
+    } */
     .adres,
     .nomer{
         text-align: center;

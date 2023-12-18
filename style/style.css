@@ -26,6 +26,12 @@ a{
     font-family: "c";
     src: url(font/open-sans-semibold.woff);
 }
+@font-face{
+    font-family: "d";
+    src: url(font/ofont.ru_Raleway.ttf);
+}
+
+
 
 /* шапка */
 
@@ -33,8 +39,9 @@ a{
 
 header{
     /* grid-auto-rows: 500px; */
-    display: grid;
-    grid-template-rows: 0fr 1fr 0fr;
+    /* display: grid; */
+    /* grid-template-rows: minmax(10px, 1fr); */
+    /* grid-template-rows: 0fr 1fr 0fr; */
     /* row-gap: 15px; */
     /* background-color: aqua; */
 }
@@ -46,26 +53,20 @@ header{
 
 
 .poisk{
-    /* padding-top: 25px;
-    padding-bottom: 25px; */
+    padding-top: 1%;
+    padding-bottom: 1%;
     /* width: 100%; */
     /* margin-left: auto;
     margin-right: auto; */
     /* gap: 10px; */
     display: grid;
-    grid-template-rows: 0.75fr 1fr 0.75fr;
-    /* grid-template-areas: 
-                ". . . . . ."
-                "a b b b c ."
-                "a b b b c ."
-                ". . . . . ."; */
     grid-template-columns: 1fr 3fr 1fr 0.5fr 1fr 1fr;
     background-color: #4855ae;
 }
 form{
     background-color: #3a448b;
     grid-column: 2/4;
-    grid-row: 2/3;
+    /* grid-row: 2/3; */
     height: min-content;
     /* border: 1px solid #3a448b; */
     border-radius: 40px;
@@ -97,22 +98,24 @@ form a{
 .lichniy_kabinet{
     grid-column: 5;
     /* background-color: crimson; */
-    grid-row: 2/3;
+    /* grid-row: 2/3; */
     height: min-content;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
     font-family: a, sans-serif;
     /* margin-left: 100px; */
     /* text-align: left; */
 }
-.lichniy_kabinet img{
+.lichniy_kabinet a{
+    color: white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.lichniy_kabinet a img{
     width: 30px;
 }
-.lichniy_kabinet p1 a{
-    color: white;
-}
+
 
 
 
@@ -122,7 +125,7 @@ form a{
 
 .info{
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     /* grid-template-columns: 1fr 5fr 1fr 4fr 1fr 3fr 1fr; */
     grid-row: 2;
     /* column-gap: 20px; */
@@ -135,7 +138,7 @@ form a{
 
 .logo{
     /* background-color: darkkhaki; */
-    grid-column: 2/7;
+    grid-column: span 3;
 }
 .logo img{
     width: 100%;
@@ -149,28 +152,20 @@ form a{
 
 
 .adres{
-    grid-column: 8/12;
+    grid-column: span 2;
     display: grid;
-    grid-template-columns: 1fr 13fr;
-    /* background-color: rgb(45, 218, 145); */
+    grid-template-columns: 20px minmax(100px, 1fr);
+    column-gap: 5px;
 }
 .adres p2, p7{
     font-family: b, sans-serif;
-    /* margin-left: -20px; */
-    /* margin-left: 10px; */
-    /* background-color: blueviolet; */
-    /* display: block; */
-}
-p7{
-    text-indent: 10px;
 }
 .adres img{
-    /* display: block; */
-    /* border: 1px solid black; */
     width: 20px;
     margin-top: 20px;
 }
 p7{
+    text-indent: 10px;
     color: grey;
     font-size: 10pt;
 }
@@ -182,14 +177,20 @@ p7{
 
 
 .nomer{
-    grid-column: 13/16;
+    grid-column: span 2;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 30px minmax(100px, 1fr);
+    column-gap: 5px;
+    /* text-align: center; */
+    /* display: grid;
+    grid-template-columns: 1fr 5fr; */
     /* background-color: rgb(238, 25, 142); */
 }
 .nomer img{
     width: 30px;
-    margin-top: 5px;
+    margin-top: 10px;
+    /* float: left; */
+    /* padding-bottom: 25px; */
 }
 .nomer p8{
     font-family: b, sans-serif;
@@ -233,12 +234,18 @@ p4{
 
 
 
-.container{
+.container {
     display: grid;
-    /* column-gap: 5px; */
-    grid-template-columns: 1fr 3fr 1fr;
-    /* background-color: violet; */
-}
+    /* grid-template-columns: repeat(auto-fit, max-content); */
+    grid-template-columns: minmax(min-content, 1fr) minmax(auto, max-content) minmax(min-content, 1fr);
+    gap: 10px;
+  }
+  
+  nav, aside, .content {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
 
 
 
@@ -248,6 +255,7 @@ p4{
 
 
 nav{
+    /* grid-column: span 1; */
     display: grid;
     position: sticky;
     top: 255px;
@@ -272,8 +280,12 @@ nav{
     margin-left: 5px;
     margin-right: 5px;
 }
+.punkt_nav:hover{
+    background-color: #0e1759;
+}
 .punkt_nav.a{
     margin-top: 10px;
+
 }
 p5{
     font-family: c, sans-serif;
@@ -295,6 +307,7 @@ nav a{
 
 
 .content{
+    /* grid-column: span 3; */
     margin-left: 5px;
     margin-right: 5px;
     line-height: 1.5;
@@ -302,7 +315,7 @@ nav a{
     /* background-color: saddlebrown; */
 }
 .content h2{
-    /* margin: 0; */
+    font-family: d, sans-serif;
 }
 .content p6{
     font-family: a, sans-serif;
@@ -323,19 +336,15 @@ nav a{
 
 
 aside{
-    /* background-color: slategrey; */
+    /* grid-column: span 1; */
     display: grid;
     row-gap: 10px;
     height: min-content;
     position: sticky;
     top: 255px;
     padding-bottom: 10px;
-    /* grid-template-rows: repeat(10, 1fr); */
-    /* row-gap: 10px; */
-    /* background-color: turquoise; */
 }
 .punkt_nav2{
-    /* margin-top: 10px; */
     background-color: #4855ae;
     color: white;
     padding-top: 10px;
@@ -347,6 +356,9 @@ aside{
     text-align: center;
     margin-left: 5px;
     margin-right: 5px;
+}
+.punkt_nav2:hover{
+    background-color: #0e1759;
 }
 .punkt_nav2.a{
     margin-top: 10px;
@@ -365,7 +377,7 @@ p9{
 
 footer{
     display: grid;
-    grid-template-rows: 10fr 1fr;
+    grid-template-rows: repeat(auto-fit, max-content);
     background-color: black;
 }
 
@@ -375,14 +387,16 @@ footer{
 
 
 
-.vverh_footer{
+.vverh_footer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    justify-content: center;
     background-color: #269337;
-    /* padding-top: 80px; */
-    column-gap: 100px;
     color: white;
-}
+    column-gap: 4%;
+  }
+  
 p10, p11, p12, p13, p14, p15,
 .razdel_footer a{
     font-family: b, sans-serif;
@@ -397,12 +411,11 @@ p10, p11, p12, p13, p14, p15,
 .logo_footer{
     /* background-color: lawngreen; */
     display: grid;
-    grid-template-rows: 0.5fr 0.5fr 1fr;
-    grid-auto-rows: min-content;
-    row-gap: 40px;
-    margin-left: 100px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    grid-template-rows: repeat(auto-fit, max-content);
+    row-gap: 4%;
+    margin-left: 10%;
     height: min-content;
 }
 
@@ -411,9 +424,12 @@ p10, p11, p12, p13, p14, p15,
 /* логотип подвала */
 
 
-
+.logo_footer{
+    /* grid-row: span 1; */
+}
 .logo_img_footer img{
     width: 100%;
+    /* background-color: aqua; */
 }
 
 
@@ -425,10 +441,13 @@ p10, p11, p12, p13, p14, p15,
 .telofon_and_email_footer{
     /* background-color: magenta; */
     display: grid;
-    column-gap: 60px;
+    /* grid-row: span 1; */
+    column-gap: 6%;
     grid-template-columns: 1fr 1fr;
     line-height: 1.5;
     height: min-content;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 p10, p12, p14{
     color: rgb(189, 221, 194);
@@ -466,6 +485,7 @@ p11, p13, p15{
 
 .adres_footer{
     /* background-color: purple; */
+    /* grid-row: span 1; */
     line-height: 2;
 }
 
@@ -484,18 +504,15 @@ p11, p13, p15{
 
 
 .razdel_footer{
-    margin-right: 100px;
-    margin-top: 50px;
     display: grid;
     grid-template-rows: repeat(6, 0.5fr);
-    row-gap: 20px;
-    height: max-content;
+    /* row-gap: 20px; */
+    /* height: max-content; */
     width: max-content;
 }
 .razdel_footer h3{
     font-family: c ,sans-serif;
     font-size: 18px;
-    margin-left: 200px;
 }
 .razdel_footer a{
     /* background-color: #ff0000; */
@@ -503,7 +520,6 @@ p11, p13, p15{
     font-family: b, sans-serif;
     font-size: 15px;
     color: white;
-    margin-left: 200px;
     transition: 0.8s;
 }
 .razdel_footer a:hover{
@@ -518,13 +534,248 @@ p11, p13, p15{
 
 .niz_footer{
     background-color: #000000;
+    /* grid-row: span 1; */
     display: flex;
     justify-content: space-around;
     margin-top: auto;
     margin-bottom: auto;
+    padding-bottom: 1%;
+    padding-top: 1%;
 }
 .niz_footer a{
     color: #999999;
     font-family: b, sans-serif;
     font-size: 15px;
+}
+
+
+
+/* адаптивный дизайн */
+
+
+/* для планшета */
+@media screen and (max-width: 768px) {
+    .info{
+        background-color: #0fe600; 
+    }
+    form input{
+        height: 25px;
+    }
+    .logo{
+        grid-column: span 2;
+    }
+    .logo img{
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .adres,
+    .nomer{
+        grid-column: span 1;
+    }
+    .nomer_img{
+        display: none;
+    }
+    .nomer{
+        grid-template-columns: 1fr;
+    }
+    .adres img,
+    .nomer img{
+        display: none;
+    }
+    .nomer{
+        text-align: center;
+    }
+    .nomer .nomer_p3_p8 p8,
+    .adres .adres_p2_p7 .adres_p7 p7{
+        font-size: 6pt;
+    }
+    .nomer .nomer_p3_p8 p3,
+    .adres .adres_p2_p7 .adres_p2 p2{
+        font-size: 8.5pt;
+    }
+    form input, form a, p1{
+        font-size: 8pt;
+    }  
+    p4{
+        font-size: 8pt;
+    }
+    .razdel a img{
+        width: 20px;
+    }
+    nav, aside{
+        row-gap: 5px;
+    }
+    .punkt_nav,
+    .punkt_nav2{
+        padding-top: 0;
+        padding-bottom: 0;
+        border-radius: 20px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .punkt_nav.a,
+    .punkt_nav2.a{
+        margin-top: 5px;
+    }
+    p5,p9{
+        font-size: 6.5pt;
+    }
+    .content h2{
+        font-size: 12px;
+    }
+    .content p6{
+        font-size: 8.5px;
+    }
+    .content li{
+        font-size: 7.5px;
+    }
+    /* .content{
+        line-height: 1;
+    } */
+    .content img{
+        width: 75%;
+    }
+    p10, p12, p14{
+        font-size: 7.5px;
+    }
+    p11, p13, p15{
+        font-size: 9px;
+    }
+    .adres_footer{
+        line-height: 1;
+    }
+    .telofon_and_email_footer{
+        line-height: 1;
+    }
+    .logo_img_footer img{
+        width: 75%;
+    }
+    .razdel_footer h3{
+        font-size: 9px;
+    }
+    .razdel_footer a{
+        font-size: 7.5px;
+    }
+    .niz_footer a{
+        font-size: 7.5px;
+    }
+}
+
+
+/* для телефона */
+@media screen and (max-width: 480px) {
+    p1, p7, p8{
+        display: none;
+    }
+    .lichniy_kabinet a img{
+        margin-top: 5px;
+    }
+    .logo{
+        grid-column: span 2;
+    }
+    .logo img{
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .info{
+        background-color: #ff0000;
+    }
+    .adres,
+    .nomer{
+        text-align: center;
+        grid-column: span 3;
+    }
+    .nomer .nomer_p3_p8 p3,
+    .adres .adres_p2_p7 .adres_p2 p2{
+        font-size: 4.5pt;
+    }
+    form input, form a, p1{
+        font-size: 5pt;
+    } 
+    form a{
+        margin-left: -35px;
+    } 
+    .lichniy_kabinet a img{
+        width: 20px;
+    }
+    p4{
+        font-size: 4pt;
+    }
+    .razdel a img{
+        width: 10px;
+    }
+    form input{
+        height: 5px;
+    }
+    nav, aside{
+        row-gap: 2.5px;
+    }
+    .punkt_nav,
+    .punkt_nav2{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .punkt_nav.a,
+    .punkt_nav2.a{
+        margin-top: 2.5px;
+    }
+    p5,p9{
+        font-size: 3.25pt;
+    }
+    .content h2{
+        font-size: 6px;
+    }
+    .content p6{
+        font-size: 4.25px;
+    }
+    .content li{
+        font-size: 3.75px;
+    }
+    .content img{
+        width: 50%;
+    }
+    nav{
+        display: none;
+    }
+
+
+    .container {
+        grid-template-columns: minmax(auto, max-content) minmax(min-content, 1fr);
+      }
+    
+      aside {
+        /* margin-left: 0;
+        margin-right: 0; */
+        width: max-content;
+      }
+
+
+
+    p10, p12, p14{
+        font-size: 3.75px;
+    }
+    p11, p13, p15{
+        font-size: 4.5px;
+    }
+    .adres_footer{
+        line-height: 0.5;
+    }
+    .telofon_and_email_footer{
+        line-height: 0.5;
+    }
+    .logo_img_footer img{
+        width: 50%;
+    }
+    .uridich_adres{
+        line-height: 0.5;
+    }
+    .razdel_footer h3{
+        font-size: 4.5px;
+    }
+    .razdel_footer a{
+        font-size: 3.75px;
+    }
+    .niz_footer a{
+        font-size: 3.75px;
+    }
 }
